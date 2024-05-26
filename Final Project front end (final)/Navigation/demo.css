@@ -1,0 +1,129 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Montserrat:wght@100;200;400&display=swap');
+
+footer{
+    background-color: black;
+}
+.menu{
+    display: inline-block;
+    padding: 1.5px;
+}
+.hf1{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 9px;
+    font-size: 4.5px;
+
+   }
+.hf1>p{
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    margin-top: 12px;
+    font-size: 15px;
+    color: white;
+}
+.hf2{
+    display: flex;
+    margin-right: 18px; 
+    font-size: 13.5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    flex-direction: row;
+}
+.hf2>ul>li{
+    margin: 9px;
+}
+.hf2>ul>li>a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.hf0{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+   position: absolute;
+   z-index: 20;
+} 
+.f1{
+    list-style-type: none;
+}
+.l-1{
+    height: 33px;
+    width: 36px; 
+    margin-top: 12px;
+    margin-right: 18px;
+    margin-left: 24px;
+}
+
+.fa-search{
+    color: white;
+    transition: 0.2s;
+}
+
+.hf2>.f1>li>a:hover, .fa-search:hover{
+    color: #a8a8a8;
+}
+
+
+
+
+/* search button */
+
+
+.input{
+    width: 0px;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+
+.active-s{
+    background-color: white;
+    color: black;
+    border: 0px;
+    margin-left: 15px;
+    transition: 0.2s ease;
+}
+.active{
+    background-color: white;
+    height: 30px;
+    width: 400px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease-out;
+}
+.active>input{
+    display: none;
+    border: 0px;
+    margin-left: 10px;
+    width: 83%;
+    transition: display 0.2s ease;
+}
+
+input:focus-visible{
+    outline: none;
+}
+
+.cross{
+    color: rgba(0, 0, 0, 0.353);
+    position: relative;
+    left: 5px;
+    transition: 0.4s;
+}
+
+.se{
+    display: none;
+}
+
+/* footer */
+
+.terms:hover, .career:hover, .map:hover, .rules:hover, .uniform:hover, .contact:hover{
+    color: blanchedalmond;
+}
+
+/* header logo */
+
+.hf1{
+    cursor: pointer;
+}

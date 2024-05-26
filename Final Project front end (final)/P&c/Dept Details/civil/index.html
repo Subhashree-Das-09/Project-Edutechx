@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Department Details</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
+        background-color: black;
+      }
+      .main {
+        margin: 0px;
+        height: 100%;
+        width: 73%;
+        position: absolute;
+        right: 0;
+        object-fit: cover;
+      }
+      .blur {
+        position: absolute;
+        height: 100%;
+        z-index: 1;
+      }
+      .gradient {
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1),
+          rgba(0, 0, 0, 0)
+        );
+        background: -webkit-linear-gradient(
+          left,
+          rgba(0, 0, 0, 1),
+          rgba(0, 0, 0, 0)
+        );
+        height: 100%;
+        width: 75%;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .text {
+        position: absolute;
+        color: white;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        top: 80px;
+        left: 50px;
+      }
+      h1 {
+        margin-bottom: 0px;
+        font-family: "Lora", serif;
+        font-weight: 700;
+      }
+      hr {
+        width: 40%;
+        margin: 0px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 450;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="" alt="civil" class="main" id="rotatingImage"/>
+    <div class="gradient"></div>
+    <div class="text">
+      <h1>Civil Department</h1>
+      <hr />
+      <p>
+        The Civil Department, often a cornerstone of engineering institutions, encompasses a broad spectrum of disciplines essential for infrastructure development and societal advancement. Its primary focus lies in the planning, design, construction, and maintenance of public and private structures, including buildings, bridges, roads, dams, and water supply systems.
+
+        Within the Civil Department, students delve into fundamental subjects such as structural engineering, geotechnical engineering, transportation engineering, and hydraulic engineering. They learn to analyze the behavior of materials under different conditions, understand soil mechanics, tackle transportation logistics, and manage water resources sustainably.
+        
+        Moreover, the department fosters interdisciplinary collaboration, encouraging students to integrate principles from various fields to tackle complex real-world challenges. Innovation is at the core, with emphasis on incorporating new materials, technologies, and methodologies to enhance efficiency, durability, and safety in construction projects.
+        
+      </p>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script>
+
+    <script>
+       const { gsap } = window;
+
+
+        var imageUrls = ["Civil dept.jpg", "civil1.avif", "civil2.jpg", "civil3.webp"];
+
+        var currentIndex = 0;
+        var rotatingImage = document.getElementById("rotatingImage");
+
+        function changeImage() {
+              
+            let imageTimeline = gsap.timeline(); 
+            imageTimeline.to(rotatingImage, { duration: 0.3, opacity: 0, x: -50 });
+
+
+            rotatingImage.src = imageUrls[currentIndex];
+            currentIndex = (currentIndex + 1) % imageUrls.length; // Loop back to the beginning when the end is reached
+
+
+            imageTimeline = gsap.timeline();
+            imageTimeline.to(rotatingImage, { duration: 0.3, opacity: 1, x: 0 });
+
+        }
+
+        changeImage();
+
+        setInterval(changeImage, 3000);
+    </script>
+  </body>
+</html>

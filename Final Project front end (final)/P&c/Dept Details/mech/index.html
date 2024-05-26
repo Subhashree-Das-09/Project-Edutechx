@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Department Details</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
+        background-color: black;
+      }
+      .main {
+        margin: 0px;
+        height: 100%;
+        width: 73%;
+        position: absolute;
+        right: 0;
+        object-fit: cover;
+      }
+      .blur {
+        position: absolute;
+        height: 100%;
+        z-index: 1;
+      }
+      .gradient {
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1),
+          rgba(0, 0, 0, 0)
+        );
+        background: -webkit-linear-gradient(
+          left,
+          rgba(0, 0, 0, 1),
+          rgba(0, 0, 0, 0)
+        );
+        height: 100%;
+        width: 75%;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .text {
+        position: absolute;
+        color: white;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        top: 80px;
+        left: 50px;
+      }
+      h1 {
+        margin-bottom: 0px;
+        font-family: "Lora", serif;
+        font-weight: 700;
+      }
+      hr {
+        width: 40%;
+        margin: 0px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 450;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="" alt="civil" class="main" id="rotatingImage"/>
+    <div class="gradient"></div>
+    <div class="text">
+      <h1>Mechanical Department</h1>
+      <hr />
+      <p>
+        The mechanical department is the powerhouse of engineering, focusing on the design, analysis, manufacturing, and maintenance of mechanical systems. It encompasses a vast array of disciplines, including thermodynamics, fluid mechanics, materials science, and mechanical design. At its core, mechanical engineering seeks to harness principles of physics and mathematics to create solutions that drive innovation across industries.
+
+        Within the mechanical department, students and professionals delve into intricate machinery, from microscopic components to massive industrial systems. They learn to optimize energy transfer, improve efficiency, and enhance functionality in everything from automotive engines to aerospace structures. The department fosters creativity and problem-solving skills, challenging individuals to think critically and innovatively.
+        
+        In academia, research within the mechanical department explores cutting-edge technologies such as robotics, renewable energy systems, and advanced materials. Industry collaboration is common, providing students with real-world applications and hands-on experience.
+        
+        Career opportunities for mechanical engineers are diverse and abundant, spanning fields such as automotive, aerospace, energy, biomedical, and manufacturing. Whether designing the next generation of vehicles or developing sustainable energy solutions, the mechanical department plays a pivotal role in shaping the future of technology and society.
+      </p>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script>
+
+    <script>
+       const { gsap } = window;
+
+
+        var imageUrls = ["mech1.jpg", "mech2.jpg", "mech3.webp", "mech4.webp"];
+
+        var currentIndex = 0;
+        var rotatingImage = document.getElementById("rotatingImage");
+
+        function changeImage() {
+              
+            let imageTimeline = gsap.timeline(); 
+            imageTimeline.to(rotatingImage, { duration: 0.3, opacity: 0, x: -50 });
+
+
+            rotatingImage.src = imageUrls[currentIndex];
+            currentIndex = (currentIndex + 1) % imageUrls.length; // Loop back to the beginning when the end is reached
+
+
+            imageTimeline = gsap.timeline();
+            imageTimeline.to(rotatingImage, { duration: 0.3, opacity: 1, x: 0 });
+
+        }
+
+        changeImage();
+
+        setInterval(changeImage, 3000);
+    </script>
+  </body>
+</html>
